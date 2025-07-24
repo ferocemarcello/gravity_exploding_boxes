@@ -1,5 +1,8 @@
-def main():
-    print("hey there")
+def iterate_(board):
+    return board+1
+def solution(board):
+    iteration = iterate_(board)
+    return(board)
   
 if __name__=="__main__":
     inpu = [
