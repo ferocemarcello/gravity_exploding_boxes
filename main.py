@@ -1,8 +1,14 @@
 def iterate_(board):
-    return board+1
+    
+    return new_board
+
 def solution(board):
-    iteration = iterate_(board)
-    return(board)
+    current_board = board
+    while True:
+        next_board = iterate_(current_board)
+        if next_board == current_board:
+            return next_board
+        current_board = next_board
   
 if __name__=="__main__":
     inpu = [
