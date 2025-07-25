@@ -11,24 +11,15 @@ def iterate_(board):
     # Loop for every column (from 0 to the last one)
     explosions = []
     while col_index < num_cols:
-        # Step 1: Check if the current column contains '#'
-        column_contains_hash = False
-        for row_index_check in range(num_rows):
-            if board[row_index_check][col_index] == '#':
-                column_contains_hash = True
-                break # Found '#', no need to check further in this column
-
-        # If the column does not contain '#', move to the next column
-        if column_contains_hash:
-            row_index = num_rows -2
-            while row_index >= 0:
-                if new_board[row_index][col_index] == '#':
-                    if new_board[row_index+1][col_index] == '-':
-                        new_board[row_index+1][col_index] = '#'
-                        new_board[row_index][col_index] = '-'
-                    if new_board[row_index+1][col_index] == '*':
-                        explosions.append((row_index+1,col_index))
-                row_index -=1
+        row_index = num_rows -2
+        while row_index >= 0:
+            if new_board[row_index][col_index] == '#':
+                if new_board[row_index+1][col_index] == '-':
+                    new_board[row_index+1][col_index] = '#'
+                    new_board[row_index][col_index] = '-'
+                if new_board[row_index+1][col_index] == '*':
+                    explosions.append((row_index+1,col_index))
+            row_index -=1
         col_index+=1
     print(f"explosions: {explosions}")
     for explo in explosions:
