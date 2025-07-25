@@ -9,7 +9,7 @@ def iterate_(board):
     num_cols = len(board[0])
     col_index = 0
     # Loop for every column (from 0 to the last one)
-    while col_index in < num_cols:
+    while col_index < num_cols:
         # Step 1: Check if the current column contains '#'
         column_contains_hash = False
         for row_index_check in range(num_rows):
@@ -38,6 +38,7 @@ def solution(board):
     current_board = board
     while True:
         next_board = iterate_(current_board)
+        print(f"next_board:{next_board}")
         if next_board == current_board:
             return next_board
         current_board = next_board
